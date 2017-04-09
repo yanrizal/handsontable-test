@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
+import { toJS } from 'mobx'
 
 @inject("store") @observer
 export default class Home extends Component {
@@ -7,6 +8,44 @@ export default class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.store = this.props.store
+	}
+	componentDidMount() {
+
+		var container = document.getElementById('example');
+		var baseUrl = "http://handsontable.com/static/";
+		var dataSport = toJS(this.store.getItems())
+
+		var hot = new Handsontable(container, {
+		  data: dataSport,
+		  colHeaders: ["Rank", "Team", "Logo", "Current Value ($M)", "1-Yr Change (%)", "Debt/Value (%)", "Revenue ($M)", "Income ($M)"],
+		  rowHeaders: false,
+		  columnSorting: true,
+		  contextMenu: true,
+		  autoWrapRow: true,
+		  columns: [
+		    {data: 0, type: 'numeric'},
+		    {data: 1, type: 'text'},
+		    {data: 2, renderer: 'html', width: 200},
+		    {data: 3, type: 'numeric', format: '$0,0.00'},
+		    {data: 4, type: 'numeric', format: '0.00%'},
+		    {data: 5, type: 'numeric', format: '0.00%'},
+		    {data: 6, type: 'numeric', format: '$0,0.00'},
+		    {data: 7, type: 'numeric', format: '$0,0.00'}
+		  ],
+		  cells: function (row, col, prop) {
+		    var cellProperties = {};
+		    cellProperties.className = 'htMiddle htCenter';
+		    return cellProperties;
+			  },
+			  afterChange: (changes, source) => {
+			  	console.log(this.store.getItems())
+			  	if (changes != undefined) {
+			  		changes.map((value) => {
+							this.store.setSingle(value[0], value[1], value[3])
+						})	
+			  	}
+			  }
+			});
 	}
 
 	render() {
@@ -26,50 +65,7 @@ export default class Home extends Component {
 					</div>
 				</header>
 				<main>
-					<div className="section-header">
-						<h3>Included libraries</h3>
-						<hr/>
-					</div>
-					<div className="boilerplate-item">
-						<div className="boilerplate-logo react"></div>
-						<div className="boilerplate-item-content">
-							<a href="https://facebook.github.io/react/" target="_blank"><h4>React</h4></a>
-							<small>UI Library</small>
-							<p>React makes it painless to create <br/>interactive UIs.</p>
-						</div>
-					</div>
-					<div className="boilerplate-item">
-						<div className="boilerplate-logo mobx"></div>
-						<div className="boilerplate-item-content">
-							<a href="http://mobxjs.github.io/mobx/" target="_blank"><h4>MobX</h4></a>
-							<small>Reactive State Management</small>
-							<p>MobX is a battle tested library that makes state management simple and scalable.</p>
-						</div>
-					</div>
-					<div className="boilerplate-item">
-						<div className="boilerplate-logo reactrouter"></div>
-						<div className="boilerplate-item-content">
-							<a href="https://react-router.now.sh/" target="_blank"><h4>React Router 4</h4></a>
-							<small>Routing Library</small>
-							<p>React Router is a declarative way to render, at any location, any UI that you and your team can think up.</p>
-						</div>
-					</div>
-					<div className="boilerplate-item">
-						<div className="boilerplate-logo webpack"></div>
-						<div className="boilerplate-item-content">
-							<a href="http://webpack.github.io/" target="_blank"><h4>Webpack 2</h4></a>
-							<small>Module Bundler</small>
-							<p>Webpack takes modules with dependencies and generates static assets representing those modules.</p>
-						</div>
-					</div>
-					<div className="section-header extras">
-						<h4>Extras</h4>
-						<hr/>
-						<ul>
-							<li>✓ Async Component Loading</li>
-							<li>✓ Code-splitting</li>
-							<li>✓ Extracted and autoprefixed CSS</li>
-						</ul>
+					<div id="example">
 					</div>
 				</main>
 			</div>

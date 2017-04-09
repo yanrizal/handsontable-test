@@ -12,6 +12,7 @@ export default class App extends Component {
 		super(props)
 		this.store = this.props.store
 	}
+	
 	componentDidMount() {
 		this.authenticate()
 		
