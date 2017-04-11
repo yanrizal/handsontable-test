@@ -2,16 +2,11 @@ import { observable, action, computed } from 'mobx'
 import axios from 'axios'
 
 class AppState {
-  @observable baseUrl
-  @observable authenticated
-  @observable authenticating
   @observable items 
   
 
   constructor() {
     this.baseUrl = "http://handsontable.com/static/";
-    this.authenticated = false
-    this.authenticating = false
     this.items = [
       [1,"Los Angeles Lakers","<img src='"+ this.baseUrl+ "images/logos/nba-teams/lakers.gif'>","2600","0.93","0.02","293","104.1"],
       [2,"New York Knicks","<img src='"+ this.baseUrl+ "images/logos/nba-teams/knicks.gif'>","2500","0.79","0.00","278","53.4"],
@@ -46,41 +41,13 @@ class AppState {
     ]
   }
 
-  async fetchData(pathname, id) {
-    let {data} = await axios.get(`https://jsonplaceholder.typicode.com${pathname}`)
-    console.log(data)
-    data.length > 0 ? this.setData(data) : this.setSingle(data)
-  }
   @action getItems() {
     return this.items
-  }
-
-  @action setData(data) {
-    this.items = data
   }
 
   @action setSingle(x, y, data) {
     console.log('apeng')
     this.items[x][y] = data
   }
-
-  @action clearItems() {
-    this.items = []
-    this.item = {}
-  }
-
-
-  @action authenticate() {
-    return new Promise((resolve,reject) => {
-          this.authenticating = true
-          setTimeout(() => {
-            this.authenticated = !this.authenticated
-            this.authenticating = false
-            resolve(this.authenticated)
-        }, 0)
-    })
-  }
-  
 }
-
 export default AppState;

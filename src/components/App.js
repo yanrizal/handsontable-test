@@ -4,8 +4,6 @@ import { Provider, observer } from 'mobx-react'
 import LazyRoute from 'lazy-route'
 import DevTools from 'mobx-react-devtools'
 
-import TopBar from './TopBar'
-
 @observer
 export default class App extends Component {
 	constructor(props) {
@@ -27,33 +25,11 @@ export default class App extends Component {
 			<Router>
 				<Provider store={this.store}>
 					<div className="wrapper">
-						{/*<DevTools />*/}
-						<TopBar />
-
 						<Route 
 						  exact
 						  path="/"
 						  render={(props) => <LazyRoute {...props} component={import('./Home')} />}
 						/>
-						<Route 
-						  exact
-						  path="/posts"
-						  render={(props) => <LazyRoute {...props} component={import('./SubPage')} />}
-						/>
-						<Route 
-						  exact
-						  path="/posts/:id"
-						  render={(props) => <LazyRoute {...props} component={import('./SubItem')} />}
-						/>
-						<Route 
-						  exact
-						  path="/login"
-						  render={(props) => <LazyRoute {...props} component={import('./Login')} />}
-						/>
-						{!!(timeToRefresh && timeToRefresh <= 4) && this.store.refreshToken()}
-					<footer>
-						Cobbled together by <a href="https://twitter.com/mhaagens" target="_blank">@mhaagens</a> | github: <a href="https://github.com/mhaagens" target="_blank">mhaagens</a>
-					</footer>
 					</div>
 				</Provider>
 			</Router>
