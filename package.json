@@ -46,6 +46,7 @@
     "webpack-dev-server": "2.1.0-beta.8"
   },
   "dependencies": {
+    "@blueprintjs/core": "^1.14.0",
     "axios": "^0.15.0",
     "faker": "^3.1.0",
     "handsontable": "^0.31.2",
@@ -56,9 +57,11 @@
     "mobx-react-devtools": "^4.2.6",
     "moment": "^2.15.1",
     "package": "^1.0.1",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-dom": "^15.5.4",
     "react-router-dom": "latest",
+    "react-transition-group": "^1.1.1",
     "whatwg-fetch": "^1.0.0"
   },
   "repository": {
