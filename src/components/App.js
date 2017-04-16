@@ -43,12 +43,12 @@ export default class App extends Component {
 						/>
 						<Route 
 						  exact
-						  path="/assets"
+						  path="/assets/:id"
 						  render={(props) => <LazyRoute {...props} component={import('./Assets')} />}
 						/>
 						<Route 
 						  exact
-						  path="/rented-assets"
+						  path="/rented-assets/:id"
 						  render={(props) => <LazyRoute {...props} component={import('./RentedAssets')} />}
 						/>
 					</div>

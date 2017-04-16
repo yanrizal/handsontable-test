@@ -14,11 +14,12 @@ class AppState {
       [5, "Komai","Los Angeles Clippers", "Komai@gmail.com", "bebas", "04/12/2017"],    
     ],
     this.assetItems = [
-      [1,"Los Angeles Lakers", "2600", "2600", "0.93", "293", "wakabayashi"],
-      [2,"New York Knicks", "2600", "2600", "0.93", "293", "wakabayashi"],
-      [3,"Chicago Bulls", "2600", "2600", "0.93", "293", "wakabayashi"],
-      [4,"Boston Celtics", "2600", "2600", "0.93", "293", "wakabayashi"],
-      [5,"Los Angeles Clippers", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [1, "rumahku", "Los Angeles Lakers", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [2, "rumahku","New York Knicks", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [3, "rumahku","Chicago Bulls", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [4, "rumahmu","Boston Celtics", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [5, "rumahmu","Los Angeles Clippers", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [6, "rumahmu","Los Angeles Clippers", "2600", "2600", "0.93", "293", "wakabayashi"],
     ],
     this.activityItems = [
       [1, 'Apeng', "<a href='/assets'>Rumah</a>", "<a href='/rented-assets'>Rumah</a>"],
@@ -38,6 +39,12 @@ class AppState {
 
   @action getAssetItems() {
     return this.assetItems
+  }
+
+  @action getAssetItemsById(assetId) {
+    return this.assetItems.filter((assetItem) => {
+      return assetItem[1] == assetId
+    })
   }
 
   @action setSingleContactItem(x, y, data) {

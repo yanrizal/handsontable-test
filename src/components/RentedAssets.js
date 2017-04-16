@@ -7,17 +7,18 @@ export default class RentedAssets extends Component {
 
   constructor(props) {
     super(props);
+    this.params = this.props.params
     this.store = this.props.store
   }
   componentDidMount() {
 
     var container = document.getElementById('rented-asset-table');
     var baseUrl = "http://handsontable.com/static/";
-    var dataAssets = toJS(this.store.getAssetItems())
+    var dataAssets = toJS(this.store.getAssetItemsById(this.props.match.params.id))
 
     var hot = new Handsontable(container, {
       data: dataAssets,
-      colHeaders: ["No", "Lokasi Asset", "Outcome", "Expected Income", "Kemungkinan deal", "Income", "Nama Pemilik"],
+      colHeaders: ["No", "Name", "Lokasi Asset", "Outcome", "Expected Income", "Kemungkinan deal", "Income", "Nama Pemilik"],
       rowHeaders: false,
       columnSorting: true,
       contextMenu: true,
@@ -25,11 +26,12 @@ export default class RentedAssets extends Component {
       columns: [
         {data: 0, type: 'text'},
         {data: 1, type: 'text'},
-        {data: 2, type: 'numeric', format: '$0,0.00'},
+        {data: 2, type: 'text'},
         {data: 3, type: 'numeric', format: '$0,0.00'},
-        {data: 4, type: 'numeric', format: '0,0.00%'},
-        {data: 5, type: 'numeric', format: '$0,0.00'},
-        {data: 6, type: 'text'},
+        {data: 4, type: 'numeric', format: '$0,0.00'},
+        {data: 5, type: 'numeric', format: '0,0.00%'},
+        {data: 6, type: 'numeric', format: '$0,0.00'},
+        {data: 7, type: 'text'},
       ],
       cells: function (row, col, prop) {
         var cellProperties = {};
