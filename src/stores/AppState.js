@@ -22,10 +22,8 @@ class AppState {
       [6, "rumahmu","Los Angeles Clippers", "2600", "2600", "0.93", "293", "wakabayashi"],
     ],
     this.activityItems = [
-      [1, 'Apeng', "<a href='/assets/rumahku'>Rumah</a>", "<a href='/rented-assets/rumahku'>Rumah</a>"],
-      [2, 'Apeng', "<a href='/assets/rumahku'>Rumah</a>", "<a href='/rented-assets/rumahku'>Rumah</a>"],
-      [3, 'Apeng', "<a href='/assets/rumahku'>Rumah</a>", "<a href='/rented-assets/rumahmu'>Rumah</a>"],
-      [4, 'Apeng', "<a href='/assets/rumahmu'>Rumah</a>", "<a href='/rented-assets/rumahmu'>Rumah</a>"],
+      [1, 'rumahku', "<a href='/assets/rumahku'>Rumah</a>", "<a href='/rented-assets/rumahku'>Rumah</a>"],
+      [2, 'rumahmu', "<a href='/assets/rumahmu'>Rumah</a>", "<a href='/rented-assets/rumahmu'>Rumah</a>"],
     ]
   }
 
