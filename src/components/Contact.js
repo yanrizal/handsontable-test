@@ -51,7 +51,7 @@ export default class Contact extends Component {
         afterChange: (changes, source) => {
           if (changes != undefined) {
             changes.map((value) => {
-              this.store.setSingle(value[0], value[1], value[3])
+              this.store.setSingleContactItem(value[0], value[1], value[3])
             })  
           }
         }

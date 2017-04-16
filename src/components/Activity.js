@@ -34,10 +34,9 @@ export default class Activity extends Component {
         return cellProperties;
         },
         afterChange: (changes, source) => {
-          console.log(this.store.getItems())
           if (changes != undefined) {
             changes.map((value) => {
-              this.store.setSingle(value[0], value[1], value[3])
+              this.store.setSingleAssetItem(value[0], value[1], value[3])
             })  
           }
         }

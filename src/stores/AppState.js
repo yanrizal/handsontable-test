@@ -40,9 +40,16 @@ class AppState {
     return this.assetItems
   }
 
-  @action setSingle(x, y, data) {
-    console.log('apeng')
-    this.items[x][y] = data
+  @action setSingleContactItem(x, y, data) {
+    this.contactItems[x][y] = data
+  }
+
+  @action setSingleActivityItem(x, y, data) {
+    this.activityItems[x][y] = data
+  }
+
+  @action setSingleAssetItem(x, y, data) {
+    this.assetItems[x][y] = data
   }
 }
 export default AppState;
