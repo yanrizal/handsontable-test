@@ -9,11 +9,11 @@ export default class Assets extends Component {
     super(props);
     this.store = this.props.store
   }
+
   componentDidMount() {
     var container = document.getElementById('asset-table');
     var baseUrl = "http://handsontable.com/static/";
     var dataAssets = toJS(this.store.getAssetItemsById(this.props.match.params.id))
-    console.log(dataAssets)
 
     var hot = new Handsontable(container, {
       data: dataAssets,
@@ -36,15 +36,20 @@ export default class Assets extends Component {
         var cellProperties = {};
         cellProperties.className = 'htMiddle htCenter';
         return cellProperties;
-        },
-        afterChange: (changes, source) => {
-          if (changes != undefined) {
-            changes.map((value) => {
-              this.store.setSingleAssetItem(value[0], value[1], value[3])
-            })  
-          }
+      },
+      afterChange: (changes, source) => {
+        if (changes != undefined) {
+          changes.map((value) => {
+            this.store.setSingleAssetItem(value[0], value[1], value[3])
+          })  
         }
-      });
+      }
+    });
+
+    var rows = hot.countRows();  
+    for (var i = 0; i < rows; i++) {
+      hot.setDataAtCell(i, 0, i + 1)
+    }
   }
 
   render() {
