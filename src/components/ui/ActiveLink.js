@@ -6,7 +6,7 @@ const ActiveLink = ({ to, activeOnlyWhenExact, ...rest }) => (
         path={to}
         exact={activeOnlyWhenExact}
         children={({ match }) => (
-            <Link to={to} {...rest} className={match ? "active" : ""} />
+            <Link to={to} {...rest} className={match ? "active site-menu-title" : "site-menu-title"} />
         )}
     />
 );

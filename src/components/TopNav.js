@@ -19,11 +19,18 @@ export default class TopNav extends Component {
 	render() {
 		const { authenticated, authenticating } = this.store
 		return (
-			<nav>
-				<ActiveLink activeOnlyWhenExact={true} to="/contact">Contact</ActiveLink>
-				<ActiveLink activeOnlyWhenExact={true} to="/activity">Activity</ActiveLink>
-				{authenticated && <ActiveLink to="/posts">Posts</ActiveLink>}
-			</nav>
+			<ul className="site-menu" data-plugin="menu">
+      	<li className="dropdown site-menu-item has-sub">
+          <a className="animsition-link" href="layouts/aside-right-fixed.html">
+            <ActiveLink activeOnlyWhenExact={true} to="/contact">Contact</ActiveLink>
+          </a>
+        </li>
+        <li className="dropdown site-menu-item has-sub">
+          <a className="animsition-link" href="layouts/aside-right-fixed.html">
+            <ActiveLink activeOnlyWhenExact={true} to="/activity">Activity</ActiveLink>
+          </a>
+        </li>
+    	</ul>
 		)
 	}
 

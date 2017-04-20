@@ -22,11 +22,19 @@ export default class TopBar extends Component {
 	render() {
 		const { authenticated } = this.store
 		return (
-			<div className="topbar">
-				<TopNav />
-				<Button onClick={this.authenticate.bind(this)} title={authenticated ? 'Log out' : 'Sign in'}/>
-			</div>
+			<div className="site-menubar">
+		    <div className="site-menubar-body">
+			    <div>
+		        <div>
+		          <TopNav />
+		        </div>
+        	</div>
+		      
+				{/*<Button onClick={this.authenticate.bind(this)} title={authenticated ? 'Log out' : 'Sign in'}/>*/}
+		    </div>
+	  	</div>
 		)
 	}
 
 }
+

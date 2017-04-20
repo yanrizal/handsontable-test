@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 import { toJS } from 'mobx'
+import Layout from './layout/Layout'
 
 @inject("store") @observer
 export default class RentedAssets extends Component {
@@ -56,10 +57,10 @@ export default class RentedAssets extends Component {
   render() {
     const store = this.store
     return (
-      <div>
+      <Layout>
           <div id="rented-asset-table" className='pt-table'>
           </div>
-      </div>
+      </Layout>
     )
   }
 

@@ -3,12 +3,10 @@ import { inject, observer } from 'mobx-react'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { Tabs2, Tab2 } from "@blueprintjs/core";
 import { toJS } from 'mobx'
-import TopBar from './TopBar'
-import Contact from './Contact'
-import Assets from './Assets'
-import RentedAssets from './RentedAssets'
+import Layout from './layout/Layout'
 
 @inject("store") @observer
+
 export default class Home extends Component {
 
 	constructor(props) {
@@ -22,9 +20,9 @@ export default class Home extends Component {
 	render() {
 		const store = this.store
 		return (
-			<div className="page home">
-			<TopBar />
-			</div>
+			<Layout>
+				
+			</Layout>
 		)
 	}
 
