@@ -20,17 +20,20 @@ export default class TopNav extends Component {
 		const { authenticated, authenticating } = this.store
 		return (
 			<ul className="site-menu" data-plugin="menu">
-      	<li className="dropdown site-menu-item has-sub">
-          <a className="animsition-link" href="layouts/aside-right-fixed.html">
-            <ActiveLink activeOnlyWhenExact={true} to="/contact">Contact</ActiveLink>
-          </a>
-        </li>
+        <li className="site-menu-category">General</li>
         <li className="dropdown site-menu-item has-sub">
-          <a className="animsition-link" href="layouts/aside-right-fixed.html">
-            <ActiveLink activeOnlyWhenExact={true} to="/activity">Activity</ActiveLink>
-          </a>
+          <ActiveLink activeOnlyWhenExact={true} to="/contact">
+          	<i className="site-menu-icon md-view-compact" aria-hidden="true">
+          	</i>Contact
+          </ActiveLink>
         </li>
-    	</ul>
+        <li className="dropdown site-menu-item has-sub">      
+          <ActiveLink activeOnlyWhenExact={true} to="/activity">
+          	<i className="site-menu-icon md-view-compact" aria-hidden="true"></i>
+          	Activity
+          </ActiveLink>
+        </li>
+      </ul>
 		)
 	}
 

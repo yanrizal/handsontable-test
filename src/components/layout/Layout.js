@@ -23,15 +23,12 @@ export default class Layout extends React.Component {
   render() {
     return (
       <div>
-        <header>
-        <TopBar />
-        </header>
+        <TopBarToolbar/>
+        <TopBar/>
         <main>
           {this.props.children}
         </main>
-        <footer className="site-footer">
-          <Footer />
-        </footer>
+        <Footer />
       </div>
     );
   }

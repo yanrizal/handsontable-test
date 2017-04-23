@@ -13,7 +13,7 @@ export default class App extends Component {
 	}
 	
 	componentDidMount() {
-		this.authenticate()
+		/*this.authenticate()*/
 		
 	}
 	authenticate(e) {
