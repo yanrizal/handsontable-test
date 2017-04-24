@@ -9,7 +9,6 @@
  */
 
 import React, { Component } from 'react'
-import Header from './Header'
 import Footer from './Footer'
 import TopBar from '../TopBar'
 import TopBarToolbar from '../TopBarToolbar'

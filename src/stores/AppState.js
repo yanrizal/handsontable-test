@@ -20,6 +20,12 @@ class AppState {
       [4, "rumahmu","Boston Celtics", "2600", "2600", "0.93", "293", "wakabayashi"],
       [5, "rumahmu","Los Angeles Clippers", "2600", "2600", "0.93", "293", "wakabayashi"],
       [6, "rumahmu","Los Angeles Clippers", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [1, "rumahku", "Los Angeles Lakers", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [2, "rumahku","New York Knicks", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [3, "rumahku","Chicago Bulls", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [4, "rumahmu","Boston Celtics", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [5, "rumahmu","Los Angeles Clippers", "2600", "2600", "0.93", "293", "wakabayashi"],
+      [6, "rumahmu","Los Angeles Clippers", "2600", "2600", "0.93", "293", "wakabayashi"],
     ],
     this.activityItems = [
       [1, 'rumahku', "<a href='/assets/rumahku'>Rumah</a>", "<a href='/rented-assets/rumahku'>Rumah</a>"],

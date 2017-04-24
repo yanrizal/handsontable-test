@@ -33,6 +33,12 @@ export default class TopNav extends Component {
           	Activity
           </ActiveLink>
         </li>
+        <li className="dropdown site-menu-item has-sub">      
+          <ActiveLink activeOnlyWhenExact={true} to="/activity">
+          	<i className="site-menu-icon md-view-compact" aria-hidden="true"></i>
+          	{authenticated ? 'Log out' : 'Sign in'}
+          </ActiveLink>
+        </li>
       </ul>
 		)
 	}

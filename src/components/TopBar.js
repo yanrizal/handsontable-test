@@ -13,11 +13,11 @@ export default class TopBar extends Component {
 		this.store = this.props.store
 	}
 
-	/*authenticate(e) {
+	authenticate(e) {
 		if (e) e.preventDefault();
 		console.log('CLICKED BUTTON')
 		this.store.authenticate()
-	}*/
+	}
 
 	render() {
 		const { authenticated } = this.store

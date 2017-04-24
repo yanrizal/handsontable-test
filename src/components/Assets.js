@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
-import Layout from './layout/Layout'
 import { toJS } from 'mobx'
+import Layout from './layout/Layout'
 
 @inject("store") @observer
 export default class Assets extends Component {
@@ -13,7 +13,6 @@ export default class Assets extends Component {
 
   componentDidMount() {
     var container = document.getElementById('asset-table');
-    var baseUrl = "http://handsontable.com/static/";
     var dataAssets = toJS(this.store.getAssetItemsById(this.props.match.params.id))
 
     var hot = new Handsontable(container, {
@@ -56,7 +55,7 @@ export default class Assets extends Component {
   render() {
     return (
       <Layout>
-        <div id="asset-table" className='pt-table'>
+        <div id="asset-table" className='pt-table handsontable-container'>
         </div>
       </Layout>
     )
