@@ -1,11 +1,15 @@
 import { observable, action, computed } from 'mobx'
 import axios from 'axios'
+import Config from '../../config'
 
 class AppState {
   @observable items 
   
 
   constructor() {
+    this.authenticated = false
+    this.authenticating = false
+    this.user = {}
     this.contactItems = [
       [1, "Komai", "Los Angeles Lakers", "Komai@gmail.com", "bebas", "04/12/2017"],
       [2, "Komai","New York Knicks", "Komai@gmail.com", "bebas", "04/12/2017"],
@@ -31,6 +35,26 @@ class AppState {
       [1, 'rumahku', "<a href='/assets/rumahku'>Rumah</a>", "<a href='/rented-assets/rumahku'>Rumah</a>"],
       [2, 'rumahmu', "<a href='/assets/rumahmu'>Rumah</a>", "<a href='/rented-assets/rumahmu'>Rumah</a>"],
     ]
+  }
+
+  @action authenticate(data) {
+    console.log(data)
+    this.authenticating = true
+    axios.post(Config.baseUrl+'/api/v1/login', data)
+    .then((response) => {
+      if (response.data.status == 'OK') {
+        this.authenticating = false
+        this.authenticated = true
+        this.user = response.data.message
+      } else {
+        this.authenticating = false
+        this.authenticated = false
+      }
+    })
+    .catch((response) => {
+      this.authenticating = false
+      this.authenticated = false
+    })
   }
 
   @action getContactItems() {
