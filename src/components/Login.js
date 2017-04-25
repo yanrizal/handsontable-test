@@ -25,8 +25,8 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="page vertical-align page-login layout-full page-dark text-xs-center" data-animsition-in="fade-in" data-animsition-out="fade-out">>
-        <div className="page-content vertical-align-middle">
+      <div className="page-login vertical-align layout-full page-dark text-xs-center" data-animsition-in="fade-in" data-animsition-out="fade-out">>
+        <div className="page-content vertical-align-middle" style={{width: "400px"}}>
           <div className="brand">
             <img className="brand-img" src="../../assets//images/logo.png" alt="..." />
             <h2 className="brand-text">Remark</h2>
