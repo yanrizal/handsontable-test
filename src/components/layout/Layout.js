@@ -24,7 +24,7 @@ export default class Layout extends React.Component {
       <div>
         <TopBarToolbar/>
         <TopBar/>
-        <main>
+        <main style={{marginTop:'10px'}}>
           {this.props.children}
         </main>
         <Footer />

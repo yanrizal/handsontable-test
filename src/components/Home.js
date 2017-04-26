@@ -102,16 +102,30 @@ export default class Home extends Component {
 		          {/*<!-- End Widget Linearea Four -->*/}
 		        </div>
 		        <div className="clearfix"></div>
-		        <div className="col-xxl-7 col-lg-7">
+		        <div className="col-xxl-6 col-lg-6">
 		          {/*<!-- Widget Jvmap -->*/}
-		          <div className="card card-shadow">
-		            <div className="card-block p-0">
-		              <div id="widgetJvmap" className="h-450"></div>
+		          <div className="card card-shadow" id="widgetCurrentChart">
+		            <div className="p-30 white bg-green-500">
+		              <div className="font-size-20 m-b-20">The current chart</div>
+		              <div className="ct-chart h-200">
+		              </div>
+		            </div>
+		            <div className="bg-white p-30 font-size-14">
+		              <div className="counter counter-lg text-xs-left">
+		                <div className="counter-label m-b-5">Approve rate are above average</div>
+		                <div className="counter-number-group">
+		                  <span className="counter-number">12,673</span>
+		                  <span className="counter-number-related text-uppercase font-size-14">pcs</span>
+		                </div>
+		              </div>
+		              <button type="button" className="btn-raised btn btn-info btn-floating">
+		                <i className="icon md-plus" aria-hidden="true"></i>
+		              </button>
 		            </div>
 		          </div>
 		          {/*<!-- End Widget Jvmap -->*/}
 		        </div>
-		        <div className="col-xxl-5 col-lg-5">
+		        <div className="col-xxl-6 col-lg-6">
 		          {/*<!-- Widget Current Chart -->*/}
 		          <div className="card card-shadow" id="widgetCurrentChart">
 		            <div className="p-30 white bg-green-500">
@@ -315,6 +329,7 @@ export default class Home extends Component {
 		          </div>
 		          {/*<!-- End Widget Info -->*/}
 		        </div>
+		        <div className="clearfix"></div>
 		        <div className="col-xxl-5 col-lg-6">
 		          {/*<!-- Panel Projects -->*/}
 		          <div className="panel" id="projects">

@@ -19,7 +19,8 @@ export default class TopBarToolbar extends Component {
   render() {
     const { authenticated } = this.store
     return (
-      <nav className="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+      <nav className="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation" style={{ height: '4.286rem',
+    minHeight:'4.286rem'}}>
         <div className="navbar-header">
           <button type="button" className="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
           data-toggle="menubar">
@@ -30,13 +31,13 @@ export default class TopBarToolbar extends Component {
           data-toggle="collapse">
             <i className="icon md-more" aria-hidden="true"></i>
           </button>
-          <a className="navbar-brand navbar-brand-center" href="/index.html">
+          <Link className="navbar-brand navbar-brand-center" to="/">
             <img className="navbar-brand-logo navbar-brand-logo-normal" src="../assets/images/logo.png"
             title="Remark" />
             <img className="navbar-brand-logo navbar-brand-logo-special" src="../assets/images/logo-blue.png"
             title="Remark" />
             <span className="navbar-brand-text hidden-xs-down"> Remark</span>
-          </a>
+          </Link>
           <button type="button" className="navbar-toggler collapsed" data-target="#site-navbar-search"
           data-toggle="collapse">
             <span className="sr-only">Toggle Search</span>
