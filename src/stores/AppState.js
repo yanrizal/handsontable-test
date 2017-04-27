@@ -10,13 +10,7 @@ class AppState {
     this.authenticated = false
     this.authenticating = false
     this.user = {}
-    this.contactItems = [
-      [1, "Komai", "Los Angeles Lakers", "Komai@gmail.com", "bebas", "04/12/2017"],
-      [2, "Komai","New York Knicks", "Komai@gmail.com", "bebas", "04/12/2017"],
-      [3, "Komai","Chicago Bulls", "Komai@gmail.com", "bebas", "04/12/2017"],
-      [4, "Komai","Boston Celtics", "Komai@gmail.com", "bebas", "04/12/2017"],
-      [5, "Komai","Los Angeles Clippers", "Komai@gmail.com", "bebas", "04/12/2017"],    
-    ],
+    this.contactItems = [],
     this.assetItems = [
       [1, "rumahku", "Los Angeles Lakers", "2600", "2600", "0.93", "293", "wakabayashi"],
       [2, "rumahku","New York Knicks", "2600", "2600", "0.93", "293", "wakabayashi"],
@@ -38,7 +32,6 @@ class AppState {
   }
 
   @action authenticate(data) {
-    console.log(data)
     this.authenticating = true
     axios.post(Config.baseUrl+'/api/v1/login', data)
     .then((response) => {
@@ -46,6 +39,7 @@ class AppState {
         this.authenticating = false
         this.authenticated = true
         this.user = response.data.message
+        localStorage.setItem("backbonelabpropsadmintoken", this.user.token);
       } else {
         this.authenticating = false
         this.authenticated = false
@@ -54,6 +48,36 @@ class AppState {
     .catch((response) => {
       this.authenticating = false
       this.authenticated = false
+    })
+  }
+
+  @action setContactItems() {
+    console.log(localStorage.backbonelabpropsadmintoken)
+    var instance = axios.create({
+      headers: {'X-backbonelabs-key': localStorage.backbonelabpropsadmintoken}
+    });
+
+    instance.get(Config.baseUrl+'/api/v1/contact')
+    .then((response) => {
+      if (response.status == 200) {
+        this.contactItems = response.data.message.map((contact) => {
+          var birthday = new Date(contact.birthdayDate).toLocaleDateString("en-US");
+          return [
+            contact._id, 
+            contact.name, 
+            contact.address, 
+            contact.email, 
+            contact.religion, 
+            birthday
+          ]
+        });
+        console.log(this.contactItems)
+      } else {
+        console.log(response)
+      }
+    })
+    .catch((response) => {
+      console.log(response)
     })
   }
 
